@@ -1,0 +1,78 @@
+[project]
+name = "backy-objects"
+version = "0.1.0"
+description = "Continuous backup of Ceph RadosGW object storage using bucket notifications"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+backy-objects = "backy.objects.main:main"
+
+[dependency-groups]
+dev = [
+    "basedpyright",
+    "pre-commit",
+    "pytest",
+    "pytest-cov",
+    "pytest-timeout",
+    "ruff",
+    "scriv",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.22,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "backy.objects"
+
+[tool.pytest.ini_options]
+testpaths = ["src"]
+addopts = [
+    "--import-mode=importlib",
+    "--cov=backy.objects",
+    "--cov-report=html",
+]
+timeout = 30
+
+[tool.coverage.run]
+branch = true
+source = ["backy.objects"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+exclude_also = [
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+
+[tool.coverage.html]
+directory = "htmlcov"
+
+[tool.ruff]
+line-length = 88
+src = ["src"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+    "ASYNC",  # flake8-async
+    "RUF", # ruff-specific
+]
+
+[tool.basedpyright]
+include = ["src"]
+typeCheckingMode = "standard"
+pythonVersion = "3.14"
+
+[tool.scriv]
+format = "md"
+version = "literal: pyproject.toml: project.version"
+output_file = "CHANGES.md"
