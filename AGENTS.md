@@ -84,6 +84,7 @@ Implementation Guidance
 * Use type annotations consistently. Avoid `Any`.
 * Do NOT stage changes yourself. Draft a commit message and show it, then let me stage the changes and I'll ask you to commit.
 * You NEVER push, only human operators do. Don't ask for pushing.
+* Tests must be free of warnings.
 
 Roadmap / Later
 ===============
