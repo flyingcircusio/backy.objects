@@ -82,8 +82,8 @@ Implementation Guidance
 * Use branches for each feature
 * Use pydantic for json serialization/deserialization
 * Use type annotations consistently. Avoid `Any`.
-* Do not stage changes yourself. Draft a commit message and show it, then let me stage the changes and I'll ask you to commit.
-* You never push, only human operators do.
+* Do NOT stage changes yourself. Draft a commit message and show it, then let me stage the changes and I'll ask you to commit.
+* You NEVER push, only human operators do. Don't ask for pushing.
 
 Roadmap / Later
 ===============
