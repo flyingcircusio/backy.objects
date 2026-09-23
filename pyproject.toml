@@ -36,6 +36,7 @@ addopts = [
 ]
 timeout = 30
 consider_namespace_packages = true
+filterwarnings = ["error"]
 
 [tool.coverage.run]
 branch = true
